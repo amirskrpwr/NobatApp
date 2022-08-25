@@ -1,0 +1,50 @@
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-accordion *ngIf="!isLoading && requests.length > 0">
+    <mat-expansion-panel *ngFor="let request of requests">
+        <mat-expansion-panel-header>
+            <span>{{ request.name }}</span>
+            <span *ngIf="request.status == 'not seen'" class="text-not-seen">
+        (دیده نشده)
+      </span>
+            <span *ngIf="request.status == 'approved'" class="text-approved">
+        (تایید شده)
+      </span>
+            <span *ngIf="request.status == 'rejected'" class="text-rejected">
+        (رد شده)
+      </span>
+        </mat-expansion-panel-header>
+
+        <ul>
+            <li><strong>شرح بیماری:</strong> {{ request.description }}</li>
+            <li>
+                <strong>تاریخ و ساعت:</strong> {{ getPersianDate(request.date) }}، {{ toFarsiTime(request.time) }}
+            </li>
+            <li><strong>شماره تماس:</strong> {{ request.phone_number }}</li>
+        </ul>
+        <mat-action-row *ngIf="isAuthenticated && userId == request.user_id">
+            <a [routerLink]="['/appointment/edit/', request.id]" mat-button color="primary">ویرایش</a
+      >
+      <button mat-button color="warn" (click)="onDelete(request.id)">
+        حذف
+      </button> </mat-action-row
+    ><mat-action-row *ngIf="isAdmin">
+      <button
+        mat-button
+        class="color-approved"
+        (click)="onChangeRequestStaus(request.id, 'approved')"
+      >
+        تایید کردن
+      </button>
+      <button
+        mat-button
+        class="color-rejected"
+        (click)="onChangeRequestStaus(request.id, 'rejected')"
+      >
+        رد کردن
+      </button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<p *ngIf="!isLoading && requests.length <= 0">
+  در حال حاضر درخواستی وجود ندارد!
+</p>

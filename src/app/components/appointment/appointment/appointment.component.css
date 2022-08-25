@@ -1,0 +1,23 @@
+mat-spinner {
+    margin: auto;
+}
+
+.text-not-seen {
+    color: #fec107;
+}
+
+.text-approved {
+    color: #8bc24a;
+}
+
+.text-rejected {
+    color: #fe5823;
+}
+
+.color-approved {
+    color: #8bc24a;
+}
+
+.color-rejected {
+    color: #fe5823;
+}

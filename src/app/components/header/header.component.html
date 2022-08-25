@@ -1,0 +1,33 @@
+<mat-toolbar color="primary" class="fixed">
+    <mat-toolbar-row class="content">
+        <span><a routerLink="">نوبت آنلاین</a></span>
+        <ul class="margin-right">
+            <li class="email" *ngIf="userIsAuthenticated">{{ userEmail }}</li>
+        </ul>
+        <div class="spacer"></div>
+        <ul>
+            <li *ngIf="userIsAuthenticated">
+                <a mat-button routerLink="/requests" routerLinkActive="mat-accent">درخواست ها</a
+        >
+      </li>
+      <li *ngIf="userIsAuthenticated && !isAdmin">
+        <a
+          mat-button
+          routerLink="/appointment/create"
+          routerLinkActive="mat-accent"
+          >دریافت نوبت</a
+        >
+      </li>
+      <li *ngIf="!userIsAuthenticated">
+        <a mat-button routerLink="/login" routerLinkActive="mat-accent">ورود</a>
+            </li>
+            <li *ngIf="!userIsAuthenticated">
+                <a mat-button routerLink="/signup" routerLinkActive="mat-accent">ثبت‌نام</a
+        >
+      </li>
+      <li *ngIf="userIsAuthenticated">
+        <button mat-button (click)="onLogout()">خروج از حساب</button>
+      </li>
+    </ul>
+  </mat-toolbar-row>
+</mat-toolbar>

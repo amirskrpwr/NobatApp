@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <form *ngIf="!isLoading" action="" (click)="onLogin(loginForm)" #loginForm="ngForm">
+        <mat-form-field>
+            <input matInput ngModel name="email" #emailInput="ngModel" type="text" placeholder="آدرس ایمیل" required email />
+            <mat-error *ngIf="emailInput.invalid">لطفا یک ایمیل معتبر وارد کنید</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="password" ngModel name="password" #passwordInput="ngModel" matInput placeholder="کلمه عبور" required password />
+            <mat-error *ngIf="passwordInput.invalid">لطفا یک کلمه عبور معتبر وارد کنید</mat-error>
+        </mat-form-field>
+        <button *ngIf="!isLoading" type="submit" mat-raised-button color="primary">
+      ورود
+    </button>
+        <mat-icon class="info" aria-hidden="false" matTooltip="جهت ورود با ادمین، از admin@mail.com و admin به عنوان ایمیل و کلمه عبور استفاده کنید. درصورتی که کاربری با این اطلاعات وجود نداشت ، با این ایمیل و کلمه عبور یک حساب کاربری بسازید." matTooltipHideDelay="100000"
+            aria-label="Example home icon" fontIcon="info-circle"></mat-icon>
+    </form>
+</mat-card>

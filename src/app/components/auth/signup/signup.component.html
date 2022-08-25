@@ -1,0 +1,20 @@
+<mat-card>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <form *ngIf="!isLoading" action="" (click)="onSignup(signupForm)" #signupForm="ngForm">
+        <mat-form-field>
+            <input matInput ngModel name="email" #emailInput="ngModel" type="text" placeholder="آدرس ایمیل" required email />
+            <mat-error *ngIf="emailInput.invalid">لطفا یک ایمیل معتبر وارد کنید</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="password" ngModel name="password1" #passwordInput="ngModel" matInput placeholder="کلمه عبور" required password />
+            <mat-error *ngIf="passwordInput.invalid">لطفا یک کلمه عبور معتبر وارد کنید</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="password" ngModel name="password2" #passwordInput="ngModel" matInput placeholder="تکرار کلمه عبور" required password />
+            <mat-error *ngIf="passwordInput.invalid">لطفا کلمه عبور را تکرار کنید</mat-error>
+        </mat-form-field>
+        <button *ngIf="!isLoading" type="submit" mat-raised-button color="primary">
+      ایجاد حساب
+    </button>
+    </form>
+</mat-card>

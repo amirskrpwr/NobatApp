@@ -1,0 +1,35 @@
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.email {
+    font-size: small;
+    vertical-align: middle;
+}
+
+.margin-right {
+    margin-right: 10px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.content {
+    width: 72%;
+    margin: 0 auto;
+}
+
+.fixed {
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}

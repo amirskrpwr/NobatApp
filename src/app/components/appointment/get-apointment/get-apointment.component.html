@@ -1,0 +1,25 @@
+<mat-card>
+    <form [formGroup]="form" (submit)="onSendRequest()" action="">
+        <mat-form-field class="whole-width">
+            <input type="text" formControlName="name" matInput placeholder="نام و نام خانوادگی" />
+        </mat-form-field>
+        <mat-form-field class="whole-width">
+            <input type="number" matInput formControlName="phone_number" placeholder="شماره تماس" />
+        </mat-form-field>
+        <mat-form-field class="whole-width">
+            <textarea matInput rows="6" formControlName="description" placeholder="شرح بیماری"></textarea>
+        </mat-form-field>
+        <mat-form-field class="margin-left">
+            <ng-persian-datepicker class="datepicker" [uiTheme]="customTheme" [dateInitValue]="false">
+                <input type="text" matInput placeholder="تاریخ را انتخاب کنید" formControlName="date" />
+            </ng-persian-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <input type="time" matInput name="" formControlName="time" id="" />
+        </mat-form-field>
+        <br />
+        <button type="submit" mat-raised-button color="primary">
+      تایید و ارسال
+    </button>
+    </form>
+</mat-card>
